@@ -3,9 +3,6 @@
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
-  "bugs": {
-    "url": "https://github.com/viclafouch/mui-file-input/issues"
-  },
   "homepage": "https://github.com/esfandiary-dev/mui-file-manager",
   "repository": {
     "url": "https://github.com/esfandiary-dev/mui-file-manager"
