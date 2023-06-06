@@ -1,11 +1,11 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.3",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
-  "homepage": "https://github.com/esfandiary-dev/mui-file-manager",
+  "homepage": "https://github.com/soobhhann/mui-file-manager",
   "repository": {
-    "url": "https://github.com/esfandiary-dev/mui-file-manager"
+    "url": "https://github.com/soobhhann/mui-file-manager"
   },
   "keywords": [
     "react",

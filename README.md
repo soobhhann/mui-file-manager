@@ -27,18 +27,27 @@ yarn add mui-file-manager
 
 ### Usage and Types
 
-```tsx
+```jsx
 
 const YourFileManagment = () => {
+
+  const [currentPath, setCurrentPath] = useState('/')
+
   // ANCHOR data
-  const data = [
-    folders: [{ name: 'string', full_path: "string", path: "string" }],
-    files: [{id: "number", full_path: "string", name_without_prefix: 'string', mime_type: "string"}]
-  ]
+  const data = {
+    '/': [
+      folders: [{ name: 'string', full_path: "string", path: "string" }],
+      files: [{id: "number", full_path: "string", name_without_prefix: 'string', mime_type: "string"}]
+    ],
+    "/test": [
+      folders: [{ name: 'string', full_path: "string", path: "string" }],
+      files: [{id: "number", full_path: "string", name_without_prefix: 'string', mime_type: "string"}]
+    ],
+  }
 
 
   // ANCHOR handlers
-  const handleCurrentPath = (data) => /* change current path */
+  const handleCurrentPath = (url: string) => setCurrentPath(url)
 
   const handleRefetch = () => /* refetch */
 
@@ -51,7 +60,7 @@ const YourFileManagment = () => {
   return (
     <MediaProvider
       currentPath={currentPath}
-      data={data}
+      data={data[currentPath]}
       isLoading={isLoading}
       refetch={handleRefetch}
       setCurrentPath={handleCurrentPath}

@@ -9,7 +9,7 @@ const ContextBox = styled(Box)(({ theme }: any) => ({
   zIndex: 9999,
   // position: "absolute",
   border: `1px solid ${theme.palette.grey[800]}`,
-  borderRadius: theme.shape.borderRadius * 2,
+  borderRadius: theme.shape.borderRadius,
 }));
 
 const AppContextMenu: FC<{ menuItems: JSX.Element, children: any }> = ({ children, menuItems }) => {
