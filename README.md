@@ -29,6 +29,8 @@ yarn add mui-file-manager
 
 ```jsx
 
+import MuiFileManager from "mui-file-manager"
+
 const YourFileManagment = () => {
 
   const [currentPath, setCurrentPath] = useState('/')
@@ -58,7 +60,7 @@ const YourFileManagment = () => {
   const onSelectFile = (file: {id: "number", full_path: "string", name_without_prefix: 'string', mime_type: "string"}) => /* handle select file */
 
   return (
-    <MediaProvider
+    <MuiFileManager
       currentPath={currentPath}
       data={data[currentPath]}
       isLoading={isLoading}
