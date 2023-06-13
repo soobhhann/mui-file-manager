@@ -1,11 +1,14 @@
 {
-  "version": "1.0.4",
+  "version": "1.0.5",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "homepage": "https://github.com/soobhhann/mui-file-manager",
   "repository": {
     "url": "https://github.com/soobhhann/mui-file-manager"
+  },
+  "bugs": {
+    "url": "https://github.com/soobhhann/mui-file-manager/issues"
   },
   "keywords": [
     "react",
@@ -14,7 +17,8 @@
     "file",
     "file manager",
     "react file manager",
-    "react mui file manager"
+    "react mui file manager",
+    "mui file manager"
   ],
   "files": [
     "dist",
@@ -54,7 +58,8 @@
     "trailingComma": "es5"
   },
   "name": "mui-file-manager",
-  "author": "sobhan esfandiary",
+  "author": "Sobhan Esfandiary",
+  "description": "A file manager designed for the React library MUI",
   "module": "dist/mui-file-manager.esm.js",
   "size-limit": [
     {
@@ -71,7 +76,6 @@
     "@types/react": "17.0.2",
     "@types/react-dom": "17.0.2",
     "husky": "^8.0.3",
-    "react": "17.0.2",
     "react-dom": "17.0.2",
     "size-limit": "^8.2.4",
     "tsdx": "^0.14.1",
