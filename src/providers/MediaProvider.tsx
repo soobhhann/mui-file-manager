@@ -73,7 +73,7 @@ const MediaProvider: FC<AppMediaProps & {
       data,
       method: !isRename ? 'POST' : 'PATCH',
     }).then(() => {
-      refetch();
+      refetch?.();
     });
   };
 
@@ -83,7 +83,7 @@ const MediaProvider: FC<AppMediaProps & {
     data.append('path', currentPath);
 
     onFileAction({ action: 'upload', data }).then(() => {
-      refetch();
+      refetch?.();
       handleCloseDialog();
     });
   };
@@ -103,7 +103,7 @@ const MediaProvider: FC<AppMediaProps & {
       data,
       method: 'DELETE',
     }).then(() => {
-      refetch();
+      refetch?.();
       handleCloseDialog();
     });
   };
@@ -127,13 +127,13 @@ const MediaProvider: FC<AppMediaProps & {
   };
 
   const handleChangePath = (index: number | false) => {
-    if (index === false) return setCurrentPath('/');
+    if (index === false) return setCurrentPath?.('/');
     const newPath = currentPath
       .split('/')
       .filter(Boolean)
       .slice(0, index + 1)
       .join('/');
-    setCurrentPath(newPath ? '/' + newPath : '/');
+    setCurrentPath?.(newPath ? '/' + newPath : '/');
   };
 
   const handleCancel = useCallback(() => {
@@ -150,7 +150,7 @@ const MediaProvider: FC<AppMediaProps & {
 
     request?.({ action: selectToAction.action, data }).then(() => {
       handleCancel();
-      refetch();
+      refetch?.();
     });
   };
 
@@ -160,7 +160,7 @@ const MediaProvider: FC<AppMediaProps & {
       .filter(Boolean)
       .slice(0, -1)
       .join('/');
-    setCurrentPath(newPath ? '/' + newPath : '/');
+    setCurrentPath?.(newPath ? '/' + newPath : '/');
   }, [currentPath]);
 
   const handleSelect = useCallback((path: string) => setSelect(path), []);
@@ -168,7 +168,7 @@ const MediaProvider: FC<AppMediaProps & {
   const handleFolderClick = useCallback(
     (path: string) => {
       if (selected !== path) return handleSelect(path);
-      setCurrentPath(path);
+      setCurrentPath?.(path);
     },
     [selected]
   );
@@ -213,7 +213,7 @@ const MediaProvider: FC<AppMediaProps & {
         handleCloseDialog,
         setSelectToAction,
         setDialogActions,
-        refetch,
+        refetch: refetch as any,
       }}
     >
       <AppMedia />

@@ -5,27 +5,11 @@ export interface MediaListInterface {
 }
 
 interface FileListOptionalInterface {
-  prefix: string;
-  separator: string;
+  prefix?: string;
   name: string;
-  extension: string;
-  disk: string;
-  path: string;
   full_name: string;
   file: string;
-  size: number;
-  size_prettified: string;
-  destroy_at: string;
-  destroyed_at: string;
-  deleted_at: string;
-  deleted_at_tz: string;
-  deleted_at_ago: string;
-  created_at: string;
-  created_at_tz: string;
-  created_at_ago: string;
-  updated_at: string;
-  updated_at_tz: string;
-  updated_at_ago: string;
+  size?: number;
 }
 
 export interface FileListInterface extends Partial<FileListOptionalInterface> {
@@ -58,10 +42,10 @@ export type mediaPermissionsTypes =
   | 'list';
 
 export interface MediaProviderProps {
-  refetch: () => void;
-  setCurrentPath: (data: MediaState['currentPath']) => void;
+  refetch?: () => void;
+  setCurrentPath?: (data: MediaState['currentPath']) => void;
   onSelectFile?: (id: FileListInterface) => void;
-  keywords?: Partial<KeywordsTypes>,
+  keywords?: Partial<KeywordsTypes>;
   permissions?: {
     file?: mediaPermissionsTypes[];
     folder?: mediaPermissionsTypes[];
@@ -101,7 +85,7 @@ export interface MediaContextType {
   selectToAction: SelectToActionTypes;
   selected: MediaListInterface | string;
   permissions: MediaProviderProps['permissions'];
-  keywords?: Partial<KeywordsTypes>,
+  keywords?: Partial<KeywordsTypes>;
   handleDelete: FakeFuncType;
   handleCreateFolder: FakeFuncType;
   handleUpload: FakeFuncType;
@@ -133,8 +117,8 @@ export interface KeywordsTypes {
   'Are you sure to delete': string;
   remove: string;
   submit: string;
-  'file name': string
-  'back': string,
-  "folder name": string,
-  "upload your file": string
+  'file name': string;
+  back: string;
+  'folder name': string;
+  'upload your file': string;
 }
