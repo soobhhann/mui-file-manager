@@ -22,7 +22,6 @@ const AppContextMenu: FC<{ menuItems: JSX.Element; children: any }> = ({
     x: 0,
     y: 0,
   });
-
   useEffect(() => {
     const handleClick = () => {
       // @ts-ignore
