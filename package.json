@@ -17,12 +17,9 @@
     "@mui/lab": "6.0.0-beta.10",
     "@mui/material": "^6.1.1",
     "@vitejs/plugin-react": "^4.3.1",
-    "debug": "^4.3.7",
-    "framer-motion": "^11.7.0",
     "mui-file-dropzone": "^4.0.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "ts-node": "^10.9.2",
     "vite": "^5.4.8",
     "vite-tsconfig-paths": "^5.0.1"
   },
@@ -45,6 +42,7 @@
     "@types/react-dom": "^18.3.0",
     "storybook": "8.3.3",
     "ts-loader": "^9.5.1",
+    "ts-node": "^10.9.2",
     "typescript": "^5.6.2"
   }
 }
