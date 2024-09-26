@@ -1,3 +1,3 @@
-import MuiFileManager from './providers/MediaProvider';
+import MuiFileManager from "./MuiFileManager";
 
-export default MuiFileManager
+export default MuiFileManager;

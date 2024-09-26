@@ -1,5 +1,5 @@
-import { useMediaContext } from '../providers/MediaProvider';
-import { KeywordsTypes } from '../interfaces/MediaTypes';
+import { useMediaContext } from "../MuiFileManager";
+import { KeywordsTypes } from "../interfaces/MediaTypes";
 
 const useNames = () => {
   const { keywords } = useMediaContext();

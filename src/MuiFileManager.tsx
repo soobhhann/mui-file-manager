@@ -1,23 +1,19 @@
 import { Typography } from "@mui/material";
-import AppDialog from "../components/AppDialog";
+import AppDialog from "./components/AppDialog";
 import {
   MediaContextType,
   MediaListInterface,
-  MediaProviderProps,
-} from "../interfaces/MediaTypes";
+  MuiFileManagerProps,
+} from "./interfaces/MediaTypes";
 import React, { FC, useCallback, useState } from "react";
-import AppMedia, { AppMediaProps } from "../components/AppMedia";
+import AppMedia from "./components/AppMedia";
 
 // ANCHOR context
 export const MediaContext = React.createContext<MediaContextType>(
   {} as MediaContextType
 );
 
-const MediaProvider: FC<
-  AppMediaProps & {
-    currentPath: string;
-  } & MediaProviderProps
-> = ({
+const MediaProvider: FC<MuiFileManagerProps> = ({
   data,
   isLoading,
   currentPath,

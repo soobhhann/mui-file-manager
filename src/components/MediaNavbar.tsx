@@ -3,19 +3,22 @@ import React from "react";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
 import CreateNewFolderIcon from "@mui/icons-material/CreateNewFolder";
 import RefreshIcon from "@mui/icons-material/Refresh";
-import { useMediaContext } from "../providers/MediaProvider";
+import { useMediaContext } from "../MuiFileManager";
 import useNames from "../hooks/useNames";
 
 const MediaNavbar = () => {
-  const {t} = useNames()
+  const { t } = useNames();
 
   // ANCHOR context
-  const { handleUpload, handleCreateFolder, refetch, permissions } = useMediaContext();
+  const { handleUpload, handleCreateFolder, refetch, permissions } =
+    useMediaContext();
 
   const iconStyle = { fontSize: "1.5rem !important", color: "text.main" };
 
   const canUpload = permissions ? permissions?.file?.includes("upload") : true;
-  const canCreate = permissions ? permissions?.folder?.includes("create") : true;
+  const canCreate = permissions
+    ? permissions?.folder?.includes("create")
+    : true;
 
   return (
     <Grid container p={1} sx={{ borderBottom: "1px solid gray" }}>

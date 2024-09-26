@@ -11,6 +11,8 @@ const ContextBox = styled(Box)(({ theme }: any) => ({
   borderRadius: theme.shape.borderRadius,
 }));
 
+const offset = 60;
+
 const AppContextMenu: FC<{ menuItems: JSX.Element; children: any }> = ({
   children,
   menuItems,
@@ -41,8 +43,8 @@ const AppContextMenu: FC<{ menuItems: JSX.Element; children: any }> = ({
       window.context = true;
       setClicked(true);
       setPoints({
-        x: e.pageX,
-        y: e.pageY,
+        x: e.pageX - offset,
+        y: e.pageY - offset,
       });
     }
   };

@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import LoadingButton from '@mui/lab/LoadingButton';
-import AppDialog from '../components/AppDialog';
-import AppTextField from '../components/AppTextField';
-import React, { FC, memo, useEffect, useState } from 'react';
+import LoadingButton from "@mui/lab/LoadingButton";
+import AppDialog from "../components/AppDialog";
+import AppTextField from "../components/AppTextField";
+import React, { FC, memo, useEffect, useState } from "react";
 
-import { DropzoneArea } from 'mui-file-dropzone';
-import { Box, Grid, Typography } from '@mui/material';
-import { useMediaContext } from '../providers/MediaProvider';
-import useNames from '../hooks/useNames';
+import { DropzoneArea } from "mui-file-dropzone";
+import { Box, Grid, Typography } from "@mui/material";
+import { useMediaContext } from "../MuiFileManager";
+import useNames from "../hooks/useNames";
 
 const MediaDialog: FC = () => {
   const { t } = useNames();
@@ -22,24 +22,24 @@ const MediaDialog: FC = () => {
   } = useMediaContext();
 
   // ANCHOR - states
-  const [Name, setName] = useState('');
+  const [Name, setName] = useState("");
   const [fileUpload, setFile] = useState<any>(null);
 
   // ANCHOR - useEffect
   useEffect(() => {
-    if (dialogActions.open) setName(dialogActions.data?.name || '');
+    if (dialogActions.open) setName(dialogActions.data?.name || "");
   }, [dialogActions.open]);
 
   return (
     <AppDialog open={dialogActions.open} handleClose={handleCloseDialog}>
       <>
-        {['rename', 'create'].includes(dialogActions.action) && (
+        {["rename", "create"].includes(dialogActions.action) && (
           <>
             <AppTextField
               value={Name}
-              onChange={e => setName(e.target.value)}
+              onChange={(e) => setName(e.target.value)}
               onKeyUp={(e: any) =>
-                e.key === 'Enter' && handleRenameAndCreate(Name)
+                e.key === "Enter" && handleRenameAndCreate(Name)
               }
               label={t("folder name")}
             />
@@ -51,12 +51,12 @@ const MediaDialog: FC = () => {
               variant="contained"
               sx={{ mt: 3 }}
             >
-              {t('submit')}
+              {t("submit")}
             </LoadingButton>
           </>
         )}
 
-        {dialogActions.action === 'upload' && (
+        {dialogActions.action === "upload" && (
           <>
             <DropzoneArea
               showAlerts={false}
@@ -67,12 +67,12 @@ const MediaDialog: FC = () => {
               showPreviewsInDropzone={false}
               filesLimit={1}
               fileObjects={[]}
-              onChange={file => setFile(file[0])}
+              onChange={(file) => setFile(file[0])}
             />
 
             {fileUpload && (
               <Box mt={2}>
-                <Typography variant="subtitle1">{t('file name')} :</Typography>
+                <Typography variant="subtitle1">{t("file name")} :</Typography>
                 <Typography variant="body2">{fileUpload?.path}</Typography>
 
                 <LoadingButton
@@ -82,17 +82,17 @@ const MediaDialog: FC = () => {
                   loading={isLoading}
                   onClick={() => handleUploadFile(fileUpload)}
                 >
-                  {t('submit')}
+                  {t("submit")}
                 </LoadingButton>
               </Box>
             )}
           </>
         )}
 
-        {dialogActions.action === 'remove' && (
+        {dialogActions.action === "remove" && (
           <>
             <Typography variant="body1" mb={2}>
-              {t('Are you sure to delete')} ?
+              {t("Are you sure to delete")} ?
             </Typography>
             <Grid container justifyContent="space-around">
               <LoadingButton
@@ -101,14 +101,14 @@ const MediaDialog: FC = () => {
                 variant="contained"
                 color="error"
               >
-                {t('remove')}
+                {t("remove")}
               </LoadingButton>
               <LoadingButton
                 variant="outlined"
                 loading={isLoading}
                 onClick={handleCloseDialog}
               >
-                {t('cancel')}
+                {t("cancel")}
               </LoadingButton>
             </Grid>
           </>

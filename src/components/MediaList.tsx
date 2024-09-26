@@ -11,7 +11,7 @@ import FolderZipIcon from "@mui/icons-material/FolderZip";
 import ArticleIcon from "@mui/icons-material/Article";
 import MediaContextMenu from "./MediaContextMenu";
 import AppContextMenu from "../components/AppContextMenu";
-import { useMediaContext } from "../providers/MediaProvider";
+import { useMediaContext } from "../MuiFileManager";
 import useNames from "../hooks/useNames";
 
 // ANCHOR styles
@@ -23,7 +23,7 @@ const MediaBox = styled(Box)(({ theme }: any) => ({
   justifyContent: "center",
   color: theme.palette.text.main,
   margin: `0 ${theme.spacing(2)}`,
-  borderRadius: theme.shape.borderRadius * 2,
+  borderRadius: theme.shape.borderRadius,
   cursor: "pointer",
   width: boxSize,
   height: boxSize,
@@ -46,11 +46,17 @@ const selectedStyle = {
 
 // ANCHOR component
 const MediaList: FC = () => {
-  const {t} = useNames()
+  const { t } = useNames();
 
   // ANCHOR context
-  const { currentPath, handleClickBack, data, handleFolderClick, handleFileClick, selected } =
-    useMediaContext();
+  const {
+    currentPath,
+    handleClickBack,
+    data,
+    handleFolderClick,
+    handleFileClick,
+    selected,
+  } = useMediaContext();
 
   // ANCHOR makers
   const iconPicker = useCallback((file: MediaListInterface["files"][0]) => {
@@ -92,13 +98,17 @@ const MediaList: FC = () => {
         {/* show folders */}
         {data?.folders.map((folder, index) => (
           <Fragment key={index}>
-            <AppContextMenu menuItems={<MediaContextMenu type="folder" data={folder} />}>
+            <AppContextMenu
+              menuItems={<MediaContextMenu type="folder" data={folder} />}
+            >
               <MediaBox
                 sx={folder.full_path === selected ? selectedStyle : undefined}
                 onClick={() => handleFolderClick(folder.full_path)}
               >
                 <FolderIcon sx={iconsStyle} />
-                <Typography variant="body2">{makeSmallText(folder.name)}</Typography>
+                <Typography variant="body2">
+                  {makeSmallText(folder.name)}
+                </Typography>
               </MediaBox>
             </AppContextMenu>
           </Fragment>
@@ -107,14 +117,18 @@ const MediaList: FC = () => {
         {/* show files */}
         {data?.files.map((file, index) => (
           <Fragment key={index}>
-            <AppContextMenu menuItems={<MediaContextMenu type="file" data={file} />}>
+            <AppContextMenu
+              menuItems={<MediaContextMenu type="file" data={file} />}
+            >
               <MediaBox
                 key={index}
                 sx={String(file.id) === selected ? selectedStyle : undefined}
                 onClick={() => handleFileClick(file)}
               >
                 {iconPicker(file)}
-                <Typography variant="body2">{makeSmallText(file.name_without_prefix)}</Typography>
+                <Typography variant="body2">
+                  {makeSmallText(file.name_without_prefix)}
+                </Typography>
               </MediaBox>
             </AppContextMenu>
           </Fragment>

@@ -138,3 +138,13 @@ export interface KeywordsTypes {
   "folder name": string;
   "upload your file": string;
 }
+
+export interface AppMediaProps {
+  data?: MediaListInterface;
+  isLoading?: boolean;
+  onFolderAction?: (body: MediaEditBody) => Promise<unknown>;
+  onFileAction?: (body: MediaEditBody) => Promise<unknown>;
+}
+
+export type MuiFileManagerProps = MediaProviderProps &
+  AppMediaProps & { currentPath: string };
