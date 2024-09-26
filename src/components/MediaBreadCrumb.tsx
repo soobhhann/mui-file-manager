@@ -1,8 +1,8 @@
-import { Stack, Typography, useTheme } from '@mui/material';
-import React, { memo } from 'react';
-import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
-import ArrowRightIcon from '@mui/icons-material/ArrowRight';
-import { useMediaContext } from '../providers/MediaProvider';
+import { Stack, Typography, useTheme } from "@mui/material";
+import React, { memo } from "react";
+import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
+import ArrowRightIcon from "@mui/icons-material/ArrowRight";
+import { useMediaContext } from "../MuiFileManager";
 
 const MediaBreadCrumb = () => {
   const { direction } = useTheme();
@@ -10,10 +10,10 @@ const MediaBreadCrumb = () => {
   const { currentPath, handleChangePath } = useMediaContext();
 
   const typoStyle = {
-    color: 'text.main',
-    cursor: 'pointer',
+    color: "text.main",
+    cursor: "pointer",
     mx: 0.5,
-    fontSize: '1rem',
+    fontSize: "1rem",
   };
 
   return (
@@ -27,14 +27,14 @@ const MediaBreadCrumb = () => {
         )
       }
       p={2}
-      sx={{ bgcolor: 'background.default', borderBottom: '1px solid gray' }}
+      sx={{ bgcolor: "background.default", borderBottom: "1px solid gray" }}
       alignItems="center"
     >
       <Typography sx={typoStyle} onClick={() => handleChangePath(false)}>
         /
       </Typography>
       {currentPath
-        .split('/')
+        .split("/")
         .filter(Boolean)
         .map((path, index) => (
           <Typography

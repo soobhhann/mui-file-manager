@@ -1,20 +1,12 @@
 import { Box } from "@mui/material";
 import LoadingContainer from "./LoadingContainer";
-import { MediaEditBody, MediaListInterface } from "../interfaces/MediaTypes";
 import React, { FC } from "react";
-import { useMediaContext } from "../providers/MediaProvider";
+import { useMediaContext } from "../MuiFileManager";
 import MediaAction from "./MediaAction";
 import MediaBreadCrumb from "./MediaBreadCrumb";
 import MediaDialog from "./MediaDialog";
 import MediaList from "./MediaList";
 import MediaNavbar from "./MediaNavbar";
-
-export interface AppMediaProps {
-  data?: MediaListInterface;
-  isLoading?: boolean;
-  onFolderAction: (body: MediaEditBody) => Promise<unknown>;
-  onFileAction: (body: MediaEditBody) => Promise<unknown>;
-}
 
 const AppMedia: FC = () => {
   const { isLoading } = useMediaContext();

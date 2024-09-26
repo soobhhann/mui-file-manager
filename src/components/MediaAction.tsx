@@ -1,7 +1,7 @@
-import { Button, Grid } from '@mui/material';
-import React, { FC, memo } from 'react';
-import { useMediaContext } from '../providers/MediaProvider';
-import useNames from '../hooks/useNames';
+import { Button, Grid } from "@mui/material";
+import React, { FC, memo } from "react";
+import { useMediaContext } from "../MuiFileManager";
+import useNames from "../hooks/useNames";
 
 const MediaAction: FC = () => {
   const { t } = useNames();
@@ -11,12 +11,12 @@ const MediaAction: FC = () => {
   return (
     <>
       {Boolean(selectToAction.from) && (
-        <Grid container mt={2} p={2} sx={{ bgcolor: 'grey.800' }}>
+        <Grid container mt={2} p={2} sx={{ bgcolor: "grey.800" }}>
           <Button onClick={handlePaste} sx={{ mr: 2 }}>
-            {t('past here')}
+            {t("past here")}
           </Button>
           <Button onClick={handleCancel} variant="outlined">
-            {t('cancel')}
+            {t("cancel")}
           </Button>
         </Grid>
       )}

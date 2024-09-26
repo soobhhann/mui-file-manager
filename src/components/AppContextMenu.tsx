@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Box, styled } from "@mui/material";
 import React, { FC, useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 
 const ContextBox = styled(Box)(({ theme }: any) => ({
   backgroundColor: theme.palette.background.default,
@@ -12,13 +11,17 @@ const ContextBox = styled(Box)(({ theme }: any) => ({
   borderRadius: theme.shape.borderRadius,
 }));
 
-const AppContextMenu: FC<{ menuItems: JSX.Element, children: any }> = ({ children, menuItems }) => {
+const offset = 60;
+
+const AppContextMenu: FC<{ menuItems: JSX.Element; children: any }> = ({
+  children,
+  menuItems,
+}) => {
   const [clicked, setClicked] = useState(false);
   const [points, setPoints] = useState({
     x: 0,
     y: 0,
   });
-  
   useEffect(() => {
     const handleClick = () => {
       // @ts-ignore
@@ -39,8 +42,8 @@ const AppContextMenu: FC<{ menuItems: JSX.Element, children: any }> = ({ childre
       window.context = true;
       setClicked(true);
       setPoints({
-        x: e.pageX,
-        y: e.pageY,
+        x: e.pageX - offset,
+        y: e.pageY - offset,
       });
     }
   };
@@ -61,23 +64,20 @@ const AppContextMenu: FC<{ menuItems: JSX.Element, children: any }> = ({ childre
     <div onContextMenu={handleContext} onTouchStart={handleTouches}>
       {children}
 
-      <AnimatePresence exitBeforeEnter>
-        {clicked && (
-          <motion.div
-            style={{
-              position: "absolute",
-              left: handleXPosition(points.x),
-              top: points.y / 1.5,
-              zIndex: 9999,
-            }}
-            initial={{ scale: 0 }}
-            exit={{ scale: 0 }}
-            animate={{ scale: 1 }}
-          >
-            <ContextBox>{menuItems}</ContextBox>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {clicked && (
+        <div
+          style={{
+            position: "absolute",
+            left: handleXPosition(points.x),
+            top: points.y / 1.5,
+            zIndex: 9999,
+            transition: "all 0.3s",
+            scale: 1,
+          }}
+        >
+          <ContextBox>{menuItems}</ContextBox>
+        </div>
+      )}
     </div>
   );
 };

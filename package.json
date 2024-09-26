@@ -1,85 +1,48 @@
 {
-  "version": "1.1.0",
-  "license": "MIT",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
-  "homepage": "https://github.com/soobhhann/mui-file-manager",
-  "repository": {
-    "url": "https://github.com/soobhhann/mui-file-manager"
-  },
-  "bugs": {
-    "url": "https://github.com/soobhhann/mui-file-manager/issues"
-  },
-  "keywords": [
-    "react",
-    "typescript",
-    "mui",
-    "file",
-    "file manager",
-    "react file manager",
-    "react mui file manager",
-    "mui file manager"
-  ],
-  "files": [
-    "dist",
-    "src"
-  ],
-  "engines": {
-    "node": ">=10"
-  },
-  "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test --passWithNoTests",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build",
-    "size": "size-limit",
-    "analyze": "size-limit --why"
-  },
-  "peerDependencies": {
-    "react": ">=16",
-    "@emotion/react": "^11.5.0",
-    "@emotion/styled": "^11.3.0",
-    "@mui/icons-material": "^5.0.0",
-    "@mui/material": "^5.0.0",
-    "@mui/lab": "5.0.0-alpha.115",
-    "mui-file-dropzone": "^4.0.2",
-    "framer-motion": "6.2.8"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
-  },
-  "prettier": {
-    "printWidth": 80,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "es5"
-  },
   "name": "mui-file-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "keywords": [],
   "author": "Sobhan Esfandiary",
-  "description": "A file manager designed for the React library MUI",
-  "module": "dist/mui-file-manager.esm.js",
-  "size-limit": [
-    {
-      "path": "dist/mui-file-manager.cjs.production.min.js",
-      "limit": "10 KB"
-    },
-    {
-      "path": "dist/mui-file-manager.esm.js",
-      "limit": "10 KB"
-    }
-  ],
+  "license": "ISC",
+  "dependencies": {
+    "@emotion/styled": "^11.13.0",
+    "@mui/icons-material": "^6.1.1",
+    "@mui/lab": "6.0.0-beta.10",
+    "@mui/material": "^6.1.1",
+    "@vitejs/plugin-react": "^4.3.1",
+    "mui-file-dropzone": "^4.0.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "vite": "^5.4.8",
+    "vite-tsconfig-paths": "^5.0.1"
+  },
   "devDependencies": {
-    "@size-limit/preset-small-lib": "^8.2.4",
-    "@types/react": "17.0.2",
-    "@types/react-dom": "17.0.2",
-    "husky": "^8.0.3",
-    "react-dom": "17.0.2",
-    "size-limit": "^8.2.4",
-    "tsdx": "^0.14.1",
-    "tslib": "^2.5.3",
-    "typescript": "^5.1.3"
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.4",
+    "@babel/preset-react": "^7.24.7",
+    "@chromatic-com/storybook": "1.9.0",
+    "@storybook/addon-actions": "^8.3.3",
+    "@storybook/addon-essentials": "8.3.3",
+    "@storybook/addon-interactions": "8.3.3",
+    "@storybook/addon-links": "^8.3.3",
+    "@storybook/addon-onboarding": "8.3.3",
+    "@storybook/blocks": "8.3.3",
+    "@storybook/react": "^8.3.3",
+    "@storybook/react-vite": "8.3.3",
+    "@storybook/test": "8.3.3",
+    "@types/node": "^22.7.3",
+    "@types/react": "^18.3.9",
+    "@types/react-dom": "^18.3.0",
+    "storybook": "8.3.3",
+    "ts-loader": "^9.5.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.2"
   }
 }

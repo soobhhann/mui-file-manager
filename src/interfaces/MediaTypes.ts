@@ -44,24 +44,24 @@ export type Logo = FileListInterface & {
 export type MediaEditBody = {
   action: string;
   data: any;
-  method?: 'POST' | 'PATCH' | 'DELETE';
+  method?: "POST" | "PATCH" | "DELETE";
 };
 
 // ANCHOR media package types
 export type mediaPermissionsTypes =
-  | 'rename'
-  | 'cut'
-  | 'copy'
-  | 'remove'
-  | 'upload'
-  | 'create'
-  | 'list';
+  | "rename"
+  | "cut"
+  | "copy"
+  | "remove"
+  | "upload"
+  | "create"
+  | "list";
 
 export interface MediaProviderProps {
-  refetch: () => void;
-  setCurrentPath: (data: MediaState['currentPath']) => void;
+  refetch?: () => void;
+  setCurrentPath?: (data: MediaState["currentPath"]) => void;
   onSelectFile?: (id: FileListInterface) => void;
-  keywords?: Partial<KeywordsTypes>,
+  keywords?: Partial<KeywordsTypes>;
   permissions?: {
     file?: mediaPermissionsTypes[];
     folder?: mediaPermissionsTypes[];
@@ -100,8 +100,8 @@ export interface MediaContextType {
   dialogActions: DialogActionsTypes;
   selectToAction: SelectToActionTypes;
   selected: MediaListInterface | string;
-  permissions: MediaProviderProps['permissions'];
-  keywords?: Partial<KeywordsTypes>,
+  permissions: MediaProviderProps["permissions"];
+  keywords?: Partial<KeywordsTypes>;
   handleDelete: FakeFuncType;
   handleCreateFolder: FakeFuncType;
   handleUpload: FakeFuncType;
@@ -115,7 +115,7 @@ export interface MediaContextType {
   handleChangePath: (index: number | false) => void;
   handleSelect: (data: string) => void;
   handleFolderClick: (path: string) => void;
-  handleFileClick: (file: MediaListInterface['files'][0]) => void;
+  handleFileClick: (file: MediaListInterface["files"][0]) => void;
   setSelectToAction: (body: SelectToActionTypes) => void;
   setDialogActions: (body: DialogActionsTypes) => void;
   refetch: FakeFuncType;
@@ -127,14 +127,24 @@ export interface KeywordsTypes {
   rename: string;
   refresh: string;
   upload: string;
-  'new folder': string;
-  'past here': string;
+  "new folder": string;
+  "past here": string;
   cancel: string;
-  'Are you sure to delete': string;
+  "Are you sure to delete": string;
   remove: string;
   submit: string;
-  'file name': string
-  'back': string,
-  "folder name": string,
-  "upload your file": string
+  "file name": string;
+  back: string;
+  "folder name": string;
+  "upload your file": string;
 }
+
+export interface AppMediaProps {
+  data?: MediaListInterface;
+  isLoading?: boolean;
+  onFolderAction?: (body: MediaEditBody) => Promise<unknown>;
+  onFileAction?: (body: MediaEditBody) => Promise<unknown>;
+}
+
+export type MuiFileManagerProps = MediaProviderProps &
+  AppMediaProps & { currentPath: string };

@@ -1,6 +1,5 @@
-import { InputProps, TextField, Typography } from '@mui/material';
-import { Box } from '@mui/system';
-import React, { FC } from 'react';
+import { InputProps, TextField, Typography, Box } from "@mui/material";
+import React, { FC } from "react";
 
 export interface AppTextFieldProps extends Record<string, unknown> {
   value?: string | null;
@@ -24,7 +23,7 @@ const AppTextField: FC<AppTextFieldProps> = ({
   InputProps,
   ...rest
 }) => {
-  const inputSymbolLabel = rest['required'] ? ' *' : '';
+  const inputSymbolLabel = rest["required"] ? " *" : "";
 
   return (
     <div>
